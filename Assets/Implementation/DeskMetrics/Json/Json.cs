@@ -15,7 +15,6 @@
 // **********************************************************************//
 
 using System;
-//using System.Data;
 using System.Collections;
 using System.Globalization;
 using System.Text;
@@ -634,48 +633,6 @@ namespace DeskMetrics.Json
 
             return (o == null) ? false : Double.TryParse(o.ToString(), out result);
         }
-
-
-        /*
-         * Expando extension. Requires C# 4.
-         * Thanks to Andrew Steward Gibson
-         * 
-         * Remove the space between * and / on the line below if C# 4 is available, and uncomment the "using" statement at the top of the file:
-         * /
-
-        /// <summary>
-        /// Decodes json string and turns it into an Expando object.
-        /// </summary>
-        /// <param name="json">The Json string to be hydrated</param>
-        /// <returns>ExpandoObject</returns>
-        public static dynamic JsonHydrate(string json)
-        {
-            dynamic ret = new ExpandoObject();
-            ret.Parsed = (Hashtable)JsonDecode(json);
-            Parse(ret, ret.Parsed);
-            return ret;
-        }
-
-        /// <summary>
-        /// Recursively parses a hashtable of key value pairs into a graph of dynamic objects.
-        /// </summary>
-        /// <param name="decorationTarget"></param>
-        /// <param name="table"></param>
-        private static void Parse(dynamic decorationTarget, Hashtable table)
-        {
-            foreach (string key in table.Keys) {
-                IDictionary<string, object> retDict = decorationTarget;
-                object propertyValue = table[key];
-                if (propertyValue is Hashtable) {
-                    dynamic nestedObject = new ExpandoObject();
-                    Parse(nestedObject, (Hashtable)propertyValue);
-                    propertyValue = nestedObject;
-                }
-                ((IDictionary<string, object>)decorationTarget).Add(key, propertyValue);
-            }
-        }
-		  
-        // */
 
     }
 }

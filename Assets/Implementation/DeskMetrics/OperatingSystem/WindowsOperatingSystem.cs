@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using Microsoft.Win32;
 using System.Threading;
 using System.Text;
-//using System.Management;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
@@ -227,50 +226,8 @@ namespace DeskMetrics.OperatingSystem
         /// GetProcessorFrequency OS Archicteture GetComponentName
         /// </summary>
         void GetArchicteture()
-        {/*
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
-                foreach (ManagementObject sysItem in searcher.Get())
-                {
-                   
-                    if (sysItem.Properties.Count <= 0)
-                    {
-                        continue;
-                    }
+        {
 
-                    foreach (PropertyData PC in sysItem.Properties)
-                    {
-                        if (PC.Name.Equals("OSArchitecture"))
-                        {
-                            if (PC.Value !=null)
-                            {
-                                string value = PC.Value.ToString().Remove(2);
-                                Architecture = int.Parse(value);
-                            }
-                        }
-                    }
-                }
-     
-                if (Architecture <= 0)
-                {
-                    if (IntPtr.Size == 8)
-                    {
-                        Architecture = 64;
-                    }
-                    else
-                    {
-                        if (IntPtr.Size == 4)
-                        {
-                            Architecture = 32;
-                        }
-                    }
-                }
-            }
-            catch 
-            {
-                Architecture = -1;
-            }*/
         }
 		
         /// <summary>
